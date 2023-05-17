@@ -16,17 +16,44 @@ namespace Calculator1
         {
             InitializeComponent();
         }
-
+        double n1, n2, r;
+        string op;
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void clickbutton(object sender, EventArgs e)
+        private void clickbutton(object sender, EventArgs e) 
         {
-            Button btn=(Button)sender;
-            textBox1.Text = textBox1.Text+btn.Text;
+          
             
+        }
+
+        private void btnEqualTo_Click(object sender, EventArgs e)
+        {
+            n2=Convert.ToDouble(txtNum.Text);   
+            switch(op)
+            {
+                case "+":
+                    r = n1 + n2;
+                    break;
+
+            }
+            txtNum.Text = r.ToString();
+        }
+
+        private void btnDigit_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            txtNum.Text += btn.Text;
+        }
+
+        private void btnOperation_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            op= btn.Text;
+            n1 = Convert.ToDouble(txtNum.Text);
+            txtNum.Text = "";
         }
     }
 }
